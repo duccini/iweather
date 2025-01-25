@@ -20,12 +20,13 @@ describe("Component: SelectList", () => {
       { id: "2", name: "São José dos Pinhais", latitude: 789, longitude: 101 },
     ];
 
-    const onPress = jest.fn(); // função mocada
+    // onPress é uma função (fn) do Jest, ou seja, uma função mocada
+    const onPress = jest.fn();
 
     render(<SelectList data={data} onChange={() => {}} onPress={onPress} />);
 
     const selectedCity = screen.getByText(/josé/i);
-    fireEvent.press(selectedCity); // selecionando a cidade
+    fireEvent.press(selectedCity); // chamando a função ao selecionar a cidade
 
     expect(onPress).toHaveBeenCalledTimes(1);
   });
